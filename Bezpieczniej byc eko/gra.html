@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bezpieczniej być Eko</title>
+    <link rel="stylesheet" href="arkuszcss2.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+</head>
+<body>
+    <div id="smieci"></div>
+    <div id="osoba"></div>
+    <div id="dialogi"></div>
+    <div id="scenka"></div>
+    <script type="text/javascript">
+        const osoba = document.getElementById('osoba');
+        const dialog = document.getElementById('dialogi');
+        const sceneria = document.getElementById('scenka');
+        const imgosoba = document.createElement("img");
+        const imgsceneria = document.createElement("img");
+        const smieci = document.getElementById("smieci");
+        const imgsmieci = document.createElement("img");
+        const cdn = document.getElementById("cdn");
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+            async function mechanizm() {
+                imgosoba.classList.add("pozycja1");
+                imgosoba.style.position = ("fixed");
+                imgosoba.src = "sceny/oski.png";
+                imgosoba.classList.add("osoba");
+                imgsceneria.src = "sceny/scena1.jpg";
+                imgsceneria.classList.add("scenka");
+                smieci.appendChild(imgsmieci);
+                osoba.appendChild(imgosoba);
+                sceneria.appendChild(imgsceneria);
+                dialog.innerHTML = '<p> <niebieski>Oskar</niebieski><bialy>: Ale piękny dzień, muszę wynieść śmieci</bialy>';
+                await sleep(2000);
+                imgosoba.src = "animacjaoski.gif";
+                imgosoba.classList.add("przesuwaj");
+                await sleep(2000);
+                imgosoba.classList.remove("przesuwaj");
+                imgosoba.classList.remove("pozycja1");
+                imgosoba.style.right = ("80vw");
+                imgosoba.style.top = ("15vh");
+                dialog.innerHTML = null;
+                imgsceneria.src = "sceny/scena2.jpg";
+                imgsmieci.src = "smieci.png";
+                imgsmieci.style.height = ("30vh");
+                imgsmieci.style.width = ("auto");
+                imgosoba.classList.add("przesunpostackuchnia");
+                await sleep(5000);
+                imgosoba.classList.remove("przesunpostackuchnia");
+                imgsmieci.src = "";
+                imgosoba.style.left = ("80vw");
+                imgosoba.style.height = ("50vh");
+                imgosoba.style.top = ("25vh");
+                imgsceneria.src = "sceny/scena3.jpg";
+                imgosoba.classList.add("przesunpostacwdol");
+                await sleep(3000);
+                imgosoba.classList.remove("przesunpostacwdol");
+                imgosoba.style.top = ("50vh");
+                imgosoba.style.left = ("80vw");
+                imgosoba.classList.add("przesunpostac2");
+                await sleep(12000);
+                imgosoba.classList.remove("przesunpostac2");
+                imgosoba.src = "";
+                imgsceneria.src = "sceny/scena4.jpg";
+                dialog.innerHTML = '<p> <niebieski>Oskar</niebieski><bialy>: Gdzie wyrzucić śmieci? <a href="#" class="wybory" onclick=id="wybor1">Do kosza</a> czy <a href="#" class="wybory" id="wybor2">posegregować je</a>?</bialy>';
+                const links = document.querySelectorAll('.wybory');
+                links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    if (link.id === 'wybor1') {
+                        imgsceneria.src = "sceny/scena4b.jpg";
+                        dialog.innerHTML = '<p> <niebieski>Oskar</niebieski><bialy>: Fu śmierdzi.';
+
+                    } else if (link.id === 'wybor2') {
+                        imgsceneria.src = "sceny/scena4a.jpg";
+                        dialog.innerHTML = '<p> <niebieski>Oskar</niebieski><bialy>: Dbam o środowisko, więc segreguje śmieci.';
+                    }
+                });
+            });
+                await sleep(8000);
+                imgsceneria.src = "sceny/scena3.jpg";
+                dialog.innerHTML = '<p> <niebieski>Oskar</niebieski><bialy>: No to teraz czas pojechać do szkoły.';
+                imgosoba.src = "animacjaoski.gif";
+                imgosoba.style.left = ("1vw");
+                imgosoba.classList.add("przesunpostac3");
+                await sleep(12000);
+                imgosoba.classList.remove("przesunpostac3");
+                imgosoba.style.left = ("83vw");
+                imgosoba.classList.add("przesunpostac4");
+                await sleep(5000);
+                imgosoba.remove();
+                imgsceneria.remove();
+                imgsmieci.remove();
+                dialogi.innerHTML = null;
+                sceneria.innerHTML = "<h1>Ciąg dalszy nastąpi...</h1>";
+                sceneria.style.textAlign = ("center");
+                sceneria.style.fontSize = ("100px");
+                sceneria.style.fontWeight = ("bold");
+            }
+            mechanizm();
+    </script>
+</body>
+</html>

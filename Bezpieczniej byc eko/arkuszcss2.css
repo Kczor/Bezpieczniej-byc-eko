@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    overflow: hidden;
+}
+.scenka{
+    width: 100vw;
+    height: 100vh;
+}
+.osoba{
+    width: auto;
+    height: 85vh;
+}
+niebieski{
+    color: #008080;
+}
+bialy{
+    color: #fcfefd;
+}
+#dialogi{
+    white-space: nowrap;
+    width: 0;
+    font-weight: 800;
+    position: fixed;
+    font-size: 50px;
+    top: 85vh;
+    left: 22.5vw;
+    text-shadow: 1px 1px 2px black;
+    animation: typing 3s steps(1000, end) forwards, blink 1s step-end infinite;
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%; 
+    }
+}
+@keyframes blink {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #ffffff;
+    }
+}
+
+@keyframes przesunPostac {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(45vw);
+    }
+}
+
+.przesuwaj {
+    animation: przesunPostac 4s ease forwards;
+}
+
+.maksymalnieLewo {
+    transform: translateX(-45vw);
+}
+.pozycja1{
+    left: 45vw;
+    top: 10vh;
+}
+@keyframes przesunpostacwdol {
+    0% {
+        transform: translateY(0) scaleX(-1);
+    }
+    100% {
+        transform: translateY(25vh) scaleX(-1);
+    }
+}
+.przesunpostacwdol {
+    animation: przesunpostacwdol 3s ease-in-out forwards;
+    transform: scaleX(-1);
+}
+#smieci{
+    position: fixed;
+    top: 75vh;
+    left: 85vw;
+}
+@keyframes przesunPostac1 {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(90vw);
+    }
+}
+.przesunpostackuchnia{
+    animation: przesunPostac1 8s ease forwards;
+}
+@keyframes przesunpostac2{
+    from {
+        transform: translateX(0) scaleX(-1);
+    }
+    to{
+        transform: translateX(-83vw) scaleX(-1);
+    }
+}
+.przesunpostac2{
+    animation: przesunpostac2 12s ease forwards;
+    animation-fill-mode: forwards;
+}
+.wybory{ 
+    cursor: pointer;
+    color: white;
+}
+@keyframes przesunpostac3{
+    from {
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(83vw);
+    }
+}
+.przesunpostac3{
+    animation: przesunpostac3 12s ease forwards;
+}
+@keyframes przesunpostacwgore {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-25vh); 
+    }
+}
+
+.przesunpostac4 {
+    animation: przesunpostacwgore 3s ease-in-out forwards;
+}
+#cdn{
+    position: fixed;
+    left: 50vw;
+    top: 50vw;
+}
+#cdn{
+    position: fixed;
+    bottom: 50vh;
+    right: 30vw;
+}

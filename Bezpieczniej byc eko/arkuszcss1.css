@@ -1,0 +1,58 @@
+body{
+    margin: 0px;
+    overflow: hidden;
+}
+#gra, #kalkulator {
+    width: 50%;
+    height: 100vh;
+    font-size: 40px;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    text-align: center;
+    font-size: 75px;
+    font-family: OCR A Std, monospace;
+    cursor: pointer;
+}
+.blok {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+#gra{
+    background-color: #008000;
+    color: #fcfefd;
+}
+#kalkulator{
+    background-color: #008080;
+    color: #fcfefd;
+}
+sup{
+    font-size: 30px;
+}
+#gra:hover, #kalkulator:hover{
+    animation: 1s ease 0s 1 normal forwards running scrollUp;
+}
+#gra:not(:hover), #kalkulator:not(:hover){
+    animation: 1s ease 0s 1 normal forwards running scrollDown;
+}
+@keyframes scrollUp {
+    0% {
+        transform: translateY(0px)
+    }
+    100% {
+        transform: translateY(-50px)
+    }
+}
+
+@keyframes scrollDown {
+    0% {
+        transform: translateY(-50px)
+    }
+    100% {
+        transform: translateY(0px)
+    }
+}

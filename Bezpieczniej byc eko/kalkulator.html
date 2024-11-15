@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bezpieczniej być Eko</title>
+    <link rel="stylesheet" href="arkuszcss.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+</head>
+<body background="tlo.png">
+    <nav>
+        <a href="index.html">Strona Głowna</a>
+    </nav>
+    <H2> KALKULATOR EMISJI CO<SUP>2</SUP></H2><BR>
+    <div id="wysrodkowanie"> 
+    <table> 
+    <tr><td>
+    <div class="guzik">   
+    <input type="number" id="kilometry" placeholder="wpisz ilość kilometrów" center/>
+    <input type="button" value="OBLICZ" id="oblicz" onclick="oblicz()"/>
+    <br />
+    <div class="komunikat"><b>Najedź na srodek transportu, aby zobaczyc ilosc emitowanego CO<sup>2</sup></b></div>
+    </div>
+    </td></tr>    
+    </table>   
+    </div>
+    <div id="motor1"><img class="motor1" src="motor.gif"></div>
+    <div id="auto1"><img class="auto1" src="auto.gif"></div>
+    <div id="autobus1"><img class="autobus1" src="autobus.gif"></div>
+    <div id="samolot1"><img class="samolot1" src="samolot.gif"></div>
+    <div id="lodz1"><img class="lodz1" src="statek.gif"></div>
+    <div id="pociag1"><img class="pociag1" src="pociag.gif"></div>
+    <script language="javascript">
+        function oblicz() {
+            var kilometry = parseFloat(document.getElementById("kilometry").value);
+            var autowynik = parseFloat((99 * kilometry) / 1000);
+            var autobuswynik = parseFloat((115 * kilometry) / 1000);
+            var pociagwynik = parseFloat((35 * kilometry) / 1000);
+            var samolotwynik = parseFloat((191 * kilometry) / 1000);
+            var lodzwynik = parseFloat((125 * kilometry) / 1000);
+            var motorwynik = parseFloat((100 * kilometry) / 1000);
+            var drzewa6 = parseInt(autowynik/0.558);
+            var drzewa1 = parseInt(autobuswynik/0.558);
+            var drzewa2 = parseInt(pociagwynik/0.558);
+            var drzewa3 = parseInt(samolotwynik/0.558);
+            var drzewa4 = parseInt(lodzwynik/0.558);
+            var drzewa5 = parseInt(motorwynik/0.558);
+            updateImage('motor1', 'motor.gif', motorwynik, kilometry, drzewa5);
+            updateImage('auto1', 'auto.gif', autowynik, kilometry, drzewa6);
+            updateImage('autobus1', 'autobus.gif', autobuswynik, kilometry, drzewa1);
+            document.getElementById('samolot1').innerHTML = '<a href="#" class="samolot1" data-tooltip="Przeleciałem ' + kilometry + 'km i wyemitowałem ' + samolotwynik + 'kg CO&sup2 do zniwelowania wyemitowanej ilości potrzeba '+drzewa3+' drzew"><img class="samolot1" src="samolot.gif"></a>';
+            document.getElementById('lodz1').innerHTML = '<a href="#" class="lodz1" data-tooltip="Przepłynąłem ' + kilometry + 'km i wyemitowałem ' + lodzwynik + 'kg CO&sup2 do zniwelowania wyemitowanej ilości potrzeba '+drzewa4+' drzew"><img class="lodz1" src="statek.gif"></a>';
+            updateImage('pociag1', 'pociag.gif', pociagwynik, kilometry, drzewa2);
+        }
+        function updateImage(elementId, imageName, wynik, kilometry, drzewa) {
+            var imgTag = '<a href="#" class="' + elementId + '" data-tooltip="Przejechałem ' + kilometry + 'km i wyemitowałem ' + wynik + 'kg CO&sup2 do zniwelowania wyemitownej ilości potrzeba '+drzewa+' drzew"><img class="' + elementId + '" src="' + imageName + '"></a>';
+            console.log(drzewa);
+            document.getElementById(elementId).innerHTML = imgTag;
+        }
+    </script>
+</body>
+</html>
